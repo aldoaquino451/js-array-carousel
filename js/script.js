@@ -9,13 +9,13 @@
     a. All'immagine corrente aggiungi la classe hide
     b. Aumenti di 1 il valore di i 
     c. Alla nuova immagine corrente togli la classe hide
-  7. Aggiungi l'evento click alle freccia up in modo che
+  8. Aggiungi l'evento click alle freccia up in modo che
     a. All'immagine corrente aggiungi la classe hide
     b. Diminuisci di 1 il valore di i 
     c. Alla nuova immagine corrente togli la classe hide
 
-  8. Nascondi il bottone up quando ti trovi nel primo elemento
-  9. Nascondi il bottone down quando ti trovi nell'ultimo elemento
+  9. Nascondi il bottone up quando ti trovi nel primo elemento
+  10. Nascondi il bottone down quando ti trovi nell'ultimo elemento
 */
 
 
@@ -39,6 +39,7 @@ for ( let i = 0; i < 5; i++ ) {
 
 // 4.
 const imageCollection = document.getElementsByClassName('item');
+const lengthCollection = imageCollection.length;
 
 // 5.
 let counterImage = 0;
@@ -48,33 +49,36 @@ imageCollection[counterImage].classList.remove('hide');
 const buttonUp = document.querySelector('.arrow-btn.up');
 const buttonDown = document.querySelector('.arrow-btn.down');
 
-// 100
-if (counterImage === 0) buttonUp.classList.add('hide');
-
 // 7.
 buttonDown.addEventListener('click', function() {
-
+  
   imageCollection[counterImage].classList.add('hide');
-  counterImage ++;
-  imageCollection[counterImage].classList.remove('hide');
 
-  if (counterImage !== 0) buttonUp.classList.remove('hide');
-  else buttonUp.classList.add('hide');
+  // 9.
+  if ( counterImage === lengthCollection ) counterImage = 0;
+  else counterImage ++;
+
+  imageCollection[counterImage].classList.remove('hide');
+  
+  console.log(counterImage);  // console
+
 });
 
 // 8.
 buttonUp.addEventListener('click', function() {
-  
+
   imageCollection[counterImage].classList.add('hide');
-  counterImage --;
+
+  // 10.
+  if ( counterImage === 0 ) counterImage = lengthCollection;
+  else counterImage --;
+
   imageCollection[counterImage].classList.remove('hide');
-  
-  
+
+  console.log(counterImage);  // console
+
 });
 
-
-
-// if (counterImage === (imageCollection.length - 1)) buttonDown.classList.add('hide');
 
 
 
