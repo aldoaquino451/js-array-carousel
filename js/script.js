@@ -1,19 +1,23 @@
 /*
   1. Resetta il container delle immagini
   2. Salva un array con tutti i source delle immagini
-  3. Con un ciclo inserisci 5 immagini con il source preso dall'array
-  4. Alla prima immagine togli la classe hide
-  5. Aggiungi l'evento click alle freccia down in modo che
+  3. Con un ciclo inserisci 5 immagini con il source preso dall'array e la classe item
+  4. Crea un array di tutti gli elementi con classe item
+  5. Rendi visibile il primo elemento dell'array 
+  6. Salva i bottoni up and down in variabili 
+  7. Aggiungi l'evento click alle freccia down in modo che
     a. All'immagine corrente aggiungi la classe hide
     b. Aumenti di 1 il valore di i 
     c. Alla nuova immagine corrente togli la classe hide
-  6. Aggiungi l'evento click alle freccia up in modo che
+  7. Aggiungi l'evento click alle freccia up in modo che
     a. All'immagine corrente aggiungi la classe hide
     b. Diminuisci di 1 il valore di i 
     c. Alla nuova immagine corrente togli la classe hide
+
+  8. Nascondi il bottone up quando ti trovi nel primo elemento
+  9. Nascondi il bottone down quando ti trovi nell'ultimo elemento
 */
 
-console.log();
 
 // 1.
 const images = document.querySelector('.carousel-image');
@@ -30,12 +34,47 @@ const imagesSource = [
 
 // 3.
 for ( let i = 0; i < 5; i++ ) {
-
-  images.innerHTML += `<img class="hide" src="${imagesSource[i]}" alt="immagine 0${i}">`;
-
-  // 4.
-  const imageSelected = document.querySelector('.carousel-image img');
-
-  if ( i === 0 ) imageSelected.classList.remove('hide');
-
+  images.innerHTML += `<img class="hide item" src="${imagesSource[i]}" alt="immagine 0${i}">`;
 };
+
+// 4.
+const imageCollection = document.getElementsByClassName('item');
+
+// 5.
+let counterImage = 0;
+imageCollection[counterImage].classList.remove('hide');
+
+// 6.
+const buttonUp = document.querySelector('.arrow-btn.up');
+const buttonDown = document.querySelector('.arrow-btn.down');
+
+// 100
+if (counterImage === 0) buttonUp.classList.add('hide');
+
+// 7.
+buttonDown.addEventListener('click', function() {
+
+  imageCollection[counterImage].classList.add('hide');
+  counterImage ++;
+  imageCollection[counterImage].classList.remove('hide');
+
+  if (counterImage !== 0) buttonUp.classList.remove('hide');
+  else buttonUp.classList.add('hide');
+});
+
+// 8.
+buttonUp.addEventListener('click', function() {
+  
+  imageCollection[counterImage].classList.add('hide');
+  counterImage --;
+  imageCollection[counterImage].classList.remove('hide');
+  
+  
+});
+
+
+
+// if (counterImage === (imageCollection.length - 1)) buttonDown.classList.add('hide');
+
+
+
