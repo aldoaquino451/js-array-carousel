@@ -1,68 +1,28 @@
 Carosello Mono Array
 ===
 
-## Esercizio
-
-#### Consegna
-Dato un array contenente una lista di cinque immagini, creare un carosello come nello screenshot allegato.
-
-#### MILESTONE 1 - HTML
-Per prima cosa, creiamo il markup statico: costruiamo il container e inseriamo un’immagine grande al centro: avremo così la struttura base e gli stili pronti per poterci poi concentrare solamente sull’aspetto 
-logico.
-
-#### MILESTONE 2
-Adesso rimuoviamo tutto il markup statico e inseriamo tutte le immagini dinamicamente servendoci dell’array fornito e un semplice ciclo for che concatena un template literal.
-Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specifica che la renderà visibile.
-Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.
-
-#### MILESTONE 3
-Al click dell’utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
-
-### BONUS 1:
-Aggiungere il ciclo infinito del carosello. Ovvero se è attiva la prima immagine e l’utente clicca la freccia per andare all’immagine precedente, dovrà comparire l’ultima immagine dell’array e viceversa.
-
-### BONUS 2:
-Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato.
-Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
-
-Prima di partire a scrivere codice:
-Non lasciamoci spaventare dalla complessità apparente dell’esercizio, ma analizziamo prima, come abbiamo fatto sempre, cosa ci potrebbe aspettare. Abbiamo completato ormai da qualche giorno la sessione HTML e CSS, se non ci ricordiamo qualcosa andiamo pure a riguardare alcuni argomenti. Non dedichiamo però al ripasso più di una mezz’ora, così da non perdere di vista il focus dell’esercizio.
-
-Consigli del giorno:
-1. Costruiamo del carosello una versione statica contenente solamente un’immagine. Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni elementi per poterli riprodurre dinamicamente in js. Potremo quindi usarli come “template”.
-2. Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
-3. Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: “Quanti cicli servono?”
-Buon lavoro e buon divertimento! :faccia_leggermente_sorridente:
-
-## HTML
-
-1. Costruiamo la struttura (container) inserendo le immagini direttamente nell'html, lasciando una sola immagine visibile  
-
-2. Aggiugniamo le frecce (che saranno bottoni) con position absolute
-
-3. Stilizziamo il tutto con classi css per verificare che sia tutto a posto 
-
-
 ## JavScript
 
-1. Resetta il container delle immagini
+1. Resetta le box container di immagini e thumb
+2. Salva in un array il percorso file delle varie immagini
+3. Aggiungi immagini e thumbs all'html 
+  a. Aseegna un src diverso
+  b. Assegna una classe per identificare le immagini e una per identificare le thumb
+4. Raggruppa in un array tutti le immagini e in un altro tutte le thumb tramite classe comune
+5. (di default) Imposta un counter con valore 
+  a. Imposta un valore massimo al counter
+6. (di default) Rendi visibile la prima immagine e attiva la prima thumb 
+7. Aggiungi l'evento click al bottone freccia down 
+    1. Salva il bottone in una variabile
+    2. Nascondi l'immagine e disattiva la thumb
+    3. Se raggiungi l'ultima immagine ritorna alla prima, altrimenti passa all'immagine successiva
+    4. Rendi visibile l'immagine e attiva la thumb
+8. Aggiungi l'evento click al bottone freccia up 
+    1. Salva il bottone in una variabile
+    2. Nascondi l'immagine e disattiva la thumb
+    3. Se raggiungi la prima immagine ritorna all'ultima, altrimenti passa all'immagine precedente
+    4. Rendi visibile l'immagine e attiva la thumb
 
-2. Con un ciclo crea n immagini da inserire nell'html
+  
 
-3. In src inserisci il valore di ogni elemento dell'array
 
-4. A tutte le immagini dai una classe hide trane la prima
-
-5. Aggiungi l'evento click alle freccia down in modo che
-    1. All'immagine corrente aggiungi la classe hide
-    1. Aumenti di 1 il valore di i 
-    1. Alla nuova immagine corrente togli la classe hide
-
-6. Aggiungi l'evento click alle freccia up in modo che
-    1. All'immagine corrente aggiungi la classe hide
-    1. Diminuisci di 1 il valore di i 
-    1. Alla nuova immagine corrente togli la classe hide
-
-**Bonus:**
-
-7. 
