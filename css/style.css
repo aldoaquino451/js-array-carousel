@@ -2,6 +2,12 @@
     GENERAL
 ----------------*/
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --button-size: 30px;
 }
@@ -24,6 +30,7 @@ section {
 
 .carousel {
   height: calc(648/920 * 100vh);
+  display: flex;
 }
 
 .carousel img {
@@ -38,7 +45,7 @@ section {
   width: calc(1152/1920 * 100vw);
 }
 
-.carousel-image img {
+.carousel-image .item {
   height: 100%;
 }
 
@@ -49,15 +56,16 @@ section {
   height: 100%;
   width: calc(396/1920 * 100vw);
   background-color: black;
+  overflow-y: auto;
 }
 
-.carousel-scroll .carousel-thumb {
+.carousel-thumb {
   height: 100%;
 }
 
-.carousel-scroll .carousel-thumb img{
+.carousel-thumb .mini-item { 
   display: block;
-  height: 20%;
+  height: calc(100% * 1/6);
   opacity: 0.2;
 }
 
@@ -84,7 +92,6 @@ section {
 .carousel-button .arrow-btn:hover {
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
-
 }
 
 .carousel-button .arrow-btn.up {
@@ -103,6 +110,7 @@ section {
   display: none;
 }
 
-.carousel-scroll .carousel-thumb .active {
-  opacity: 1;
+.active {
+  height: calc(100% * 2/6) !important;
+  opacity: 1 !important; 
 }

@@ -33,7 +33,7 @@ thumbs.innerHTML = '';
 const source = [
   './img/cyberpunk.jpg',
   './img/elder-ring.webp',
-  './img/zelda.jpg',
+  './img/genshin-impact.jpg',
   './img/last-of-us.jpg',
   './img/portal.jpg',
 ]
@@ -43,7 +43,7 @@ const source = [
 for ( let i = 0; i < source.length; i ++ ) {
 
   images.innerHTML += `<img class="item hide" src="${source[i]}" alt="01">`;
-  thumbs.innerHTML += `<img class="mini-item" src="${source[i]}" alt="01">`
+  thumbs.innerHTML += `<img class="amini-item" src="${source[i]}" alt="01">`
 
 };
 
